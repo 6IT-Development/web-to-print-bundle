@@ -1,12 +1,12 @@
 {
-  "name": "pimcore/web-to-print-bundle",
+  "name": "six-it/web-to-print-bundle",
   "license": "GPL-3.0-or-later",
   "type": "pimcore-bundle",
-  "description": "Pimcore WebToPrint Bundle",
+  "description": "Pimcore WebToPrint Bundle 6IT version",
   "config": {
     "sort-packages": true,
     "preferred-install": {
-      "pimcore/pimcore": "source",
+      "six-it/pimcore-source": "source",
       "*": "dist"
     }
   },
@@ -14,8 +14,8 @@
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "doctrine/dbal": "^3.6",
-    "pimcore/admin-ui-classic-bundle": "^1.1",
-    "pimcore/pimcore": "^11.2"
+    "six-it/admin-ui-classic-bundle": "^1.0",
+    "six-it/pimcore-source": "^1.0"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.10.5",
@@ -25,10 +25,6 @@
     "codeception/codeception": "^5.0.3",
     "codeception/module-symfony": "^3.1.0",
     "codeception/phpunit-wrapper": "^9"
-  },
-  "suggest": {
-    "gotenberg/gotenberg-php": "Required for generating pdf via Gotenberg in assets preview (LibreOffice), page preview, version diff and web2print",
-    "chrome-php/chrome": "Required for Documents Page Previews"
   },
   "autoload": {
     "psr-4": {
