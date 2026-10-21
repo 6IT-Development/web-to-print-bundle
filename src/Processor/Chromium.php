@@ -22,7 +22,7 @@ use Pimcore\Bundle\WebToPrintBundle\Event\DocumentEvents;
 use Pimcore\Bundle\WebToPrintBundle\Event\Model\PrintConfigEvent;
 use Pimcore\Bundle\WebToPrintBundle\Model\Document\PrintAbstract;
 use Pimcore\Bundle\WebToPrintBundle\Processor;
-use Pimcore\Image\Chromium as ChromiumLib;
+use Pimcore\Image\HtmlToImage;
 use Pimcore\Logger;
 
 class Chromium extends Processor
@@ -109,7 +109,7 @@ class Chromium extends Processor
         if (!empty($chromiumUri)) {
             $browser = BrowserFactory::connectToBrowser($chromiumUri);
         } else {
-            $browserFactory = new BrowserFactory(ChromiumLib::getChromiumBinary());
+            $browserFactory = new BrowserFactory(HtmlToImage::getChromiumBinary());
             // starts headless chrome
             $browser = $browserFactory->createBrowser([
                 'noSandbox' => true,

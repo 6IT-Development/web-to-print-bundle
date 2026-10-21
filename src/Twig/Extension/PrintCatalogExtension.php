@@ -56,7 +56,7 @@ class PrintCatalogExtension extends AbstractExtension
         ];
     }
 
-    public function getSpecValue(\stdClass $outputElement, string $thumbnailName = null): string
+    public function getSpecValue(\stdClass $outputElement, ?string $thumbnailName = null): string
     {
         if ($outputElement->value instanceof Image) {
             return $this->printImage($outputElement->value, $thumbnailName);
@@ -77,14 +77,14 @@ class PrintCatalogExtension extends AbstractExtension
         }
     }
 
-    protected function printImage(Image $image, string $thumbnailName): string
+    protected function printImage(Image $image, ?string $thumbnailName): string
     {
         $src = $thumbnailName ? $image->getThumbnail($thumbnailName) : $image->getFullPath();
 
         return "<img src='$src' alt='image' />";
     }
 
-    protected function printImageGallery(\Pimcore\Model\DataObject\Data\ImageGallery $imageGallery, string $thumbnailName): string
+    protected function printImageGallery(\Pimcore\Model\DataObject\Data\ImageGallery $imageGallery, ?string $thumbnailName): string
     {
         $firstItem = $imageGallery->current();
         if ($firstItem && $firstItem->getImage()) {
@@ -94,7 +94,7 @@ class PrintCatalogExtension extends AbstractExtension
         return '';
     }
 
-    protected function printHotspotImage(\Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage, string $thumbnailName): string
+    protected function printHotspotImage(\Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage, ?string $thumbnailName): string
     {
         $image = $hotspotimage->getImage();
         if ($image) {
